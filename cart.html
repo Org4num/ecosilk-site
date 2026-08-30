@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Your Bag — Ecosilk</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<nav>
+  <div class="navrow">
+    <div class="logo">ecosilk</div>
+    <div class="navlinks">
+      <a href="index.html">Home</a>
+      <a href="shop.html">Shop</a>
+      <a href="about.html">Impact</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <a href="cart.html" class="cart-pill active" data-cart-count>Bag · 0</a>
+  </div>
+</nav>
+
+<div class="page-head">
+  <h1>Your bag</h1>
+</div>
+
+<div class="wrap" style="max-width:700px;padding-bottom:100px;">
+  <div id="emptyState" class="empty-state" style="display:none;">
+    <p>Nothing in here yet.</p>
+    <br>
+    <a href="shop.html" class="btn">Browse the shop</a>
+  </div>
+
+  <div id="cartLines"></div>
+
+  <div id="cartSummary" style="display:none;">
+    <div class="cart-total-row">
+      <span>Total</span>
+      <span id="cartTotal">$0.00</span>
+    </div>
+
+    <!--
+      CHECKOUT — NOT YET WIRED
+      This is where the PayPal Smart Buttons SDK renders once we have:
+        1. A real PayPal Business account client ID (sandbox first)
+        2. The Apps Script webhook URL from the order-receiver scaffold,
+           set as the return/notify target
+      See README.md "Checkout wiring" for the exact snippet to drop in here.
+    -->
+    <div id="paypal-button-container" style="margin-top:20px;padding:20px;border:2px dashed var(--ink);border-radius:16px;text-align:center;opacity:0.6;">
+      PayPal checkout renders here once wired up — see README.md
+    </div>
+  </div>
+</div>
+
+<footer>
+  Made in Australia since 2001. Prototype UI, R&amp;D build only — not the live site.
+</footer>
+
+<script src="assets/catalog-data.js"></script>
+<script src="assets/app.js"></script>
+</body>
+</html>

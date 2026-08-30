@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact — Ecosilk</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<nav>
+  <div class="navrow">
+    <div class="logo">ecosilk</div>
+    <div class="navlinks">
+      <a href="index.html">Home</a>
+      <a href="shop.html">Shop</a>
+      <a href="about.html">Impact</a>
+      <a href="contact.html" class="active">Contact</a>
+    </div>
+    <a href="cart.html" class="cart-pill" data-cart-count>Bag · 0</a>
+  </div>
+</nav>
+
+<div class="page-head">
+  <h1>Say hello</h1>
+  <p>Questions, wholesale enquiries, or just want to say you love your bag.</p>
+</div>
+
+<div class="wrap" style="max-width:560px;padding-bottom:100px;">
+  <!--
+    FORM ACTION — placeholder.
+    Same pattern as iDream: sign up free at formspree.io, create a form,
+    drop the endpoint in below. No backend needed either way.
+  -->
+  <form class="contact-form" action="https://formspree.io/f/REPLACE_WITH_REAL_FORM_ID" method="POST">
+    <input type="text" name="name" placeholder="Your name" required>
+    <input type="email" name="email" placeholder="Your email" required>
+    <textarea name="message" placeholder="What's on your mind?" required></textarea>
+    <button type="submit" class="btn btn-full">Send</button>
+  </form>
+</div>
+
+<footer>
+  Prototype UI, R&amp;D build only — not the live site.
+</footer>
+
+<script src="assets/catalog-data.js"></script>
+<script src="assets/app.js"></script>
+</body>
+</html>

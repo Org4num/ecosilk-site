@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Product — Ecosilk</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<nav>
+  <div class="navrow">
+    <div class="logo">ecosilk</div>
+    <div class="navlinks">
+      <a href="index.html">Home</a>
+      <a href="shop.html" class="active">Shop</a>
+      <a href="about.html">Impact</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <a href="cart.html" class="cart-pill" data-cart-count>Bag · 0</a>
+  </div>
+</nav>
+
+<div class="wrap" style="padding:50px 28px 90px;">
+  <div class="product-detail" id="productDetail"></div>
+</div>
+
+<footer>
+  Made in Australia since 2001. Prototype UI, R&amp;D build only — not the live site.
+</footer>
+
+<script src="assets/catalog-data.js"></script>
+<script src="assets/app.js"></script>
+<script>
+  renderProductDetail(document.getElementById('productDetail'));
+</script>
+</body>
+</html>

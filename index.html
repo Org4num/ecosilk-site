@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ecosilk — The bag that refuses to end up in a landfill</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<nav>
+  <div class="navrow">
+    <div class="logo">ecosilk</div>
+    <div class="navlinks">
+      <a href="index.html" class="active">Home</a>
+      <a href="shop.html">Shop</a>
+      <a href="about.html">Impact</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <a href="cart.html" class="cart-pill" data-cart-count>Bag · 0</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="eyebrow">24 colours. Zero plastic.</div>
+  <h1>The bag that folds into your <span class="pop">pocket</span> and refuses to end up in a landfill</h1>
+  <p>Parachute-strong nylon that carries 14kg, scrunches down smaller than your phone, and comes back for round two — every single day.</p>
+  <div class="swatch-wall" id="swatchWall"></div>
+</header>
+
+<div class="picked">
+  <div class="picked-inner">
+    <div class="picked-swatch" id="pickedSwatch"></div>
+    <span id="pickedName">Sea Green</span>
+    <span id="pickedPrice" style="opacity:0.7;">$12.99</span>
+    <a href="#" class="shop-cta" id="heroAddBtn">Add to bag</a>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <h2 style="font-size:clamp(1.8rem,3.6vw,2.6rem);max-width:600px;">Built for people who actually use it. Every day. For years.</h2>
+    <div class="grid3">
+      <div class="card">
+        <div class="tag" style="background:var(--gold);">Strength</div>
+        <h3>Carries 14kg</h3>
+        <p>Your arm gives up before the bag does. Six bottles, a watermelon, a week's shop — no problem.</p>
+      </div>
+      <div class="card">
+        <div class="tag" style="background:var(--seagreen);color:#fff;">Pocketable</div>
+        <h3>Fits in your palm</h3>
+        <p>Scrunches down to nothing. Keep three in your bag and never get caught out again.</p>
+      </div>
+      <div class="card">
+        <div class="tag" style="background:var(--purple);color:#fff;">Built to last</div>
+        <h3>5-year guarantee</h3>
+        <p>Machine washable, no built-in expiry date. This isn't a bag you'll be replacing next year.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band band-teal">
+  <h2>1 bag ≈ 1,000 plastic bags never used</h2>
+  <p>A slice of every sale goes to the Australian Marine Conservation Society. The reef's still here — let's keep it that way.</p>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2 style="font-size:clamp(1.6rem,3.2vw,2.2rem);margin-bottom:20px;">What people who actually own one say</h2>
+    <div class="testi-strip">
+      <div class="testi-card">"Strong enough for fruit and veg, pretty enough for everything else."<div class="who">Gaynor · Collingwood VIC</div></div>
+      <div class="testi-card">"The colours, the strength, the pocket-ness. Best reusable bag we've tried, full stop."<div class="who">Lorna · Enmore NSW</div></div>
+      <div class="testi-card">"Plastic bag free, every day, for years now."<div class="who">Judy · Kinglake West VIC</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="newsletter">
+  <h2 style="font-size:clamp(1.6rem,3vw,2.2rem);">15% off your first order</h2>
+  <p style="opacity:0.8;">New colours before anyone else. No spam, ever.</p>
+  <form onsubmit="return false;">
+    <input type="email" placeholder="your@email.com">
+    <button>Join</button>
+  </form>
+</div>
+
+<footer>
+  Made in Australia since 2001. 100% recyclable parachute silk. Acknowledging the Widjabul Wia-bul people of the Bundjalung nation, Traditional Owners of the land this business calls home.<br><br>
+  Prototype UI, R&amp;D build only — not the live site.
+</footer>
+
+<script src="assets/catalog-data.js"></script>
+<script src="assets/app.js"></script>
+<script>
+  const bagColours = CATALOG.filter(p => p.category === 'Ecosilk Environmentally Friendly Shopping Bag');
+  const wall = document.getElementById('swatchWall');
+  let current = bagColours[0];
+
+  bagColours.forEach(p => {
+    const el = document.createElement('div');
+    el.className = 'swatch';
+    el.style.backgroundImage = `url('${p.image}')`;
+    el.title = p.color;
+    el.addEventListener('mouseenter', () => pick(p));
+    el.addEventListener('click', () => pick(p));
+    wall.appendChild(el);
+  });
+
+  function pick(p) {
+    current = p;
+    document.getElementById('pickedSwatch').style.backgroundImage = `url('${p.image}')`;
+    document.getElementById('pickedName').textContent = p.color;
+    document.getElementById('pickedPrice').textContent = '$' + p.price.toFixed(2);
+  }
+  pick(bagColours[0]);
+
+  document.getElementById('heroAddBtn').addEventListener('click', (e) => {
+    e.preventDefault();
+    addToCart(current.sku, 1);
+    e.target.textContent = 'Added ✓';
+    setTimeout(() => e.target.textContent = 'Add to bag', 900);
+  });
+</script>
+</body>
+</html>
