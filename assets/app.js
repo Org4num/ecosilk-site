@@ -201,21 +201,10 @@ function renderCartPage() {
 }
 
 function injectLogo() {
-  const badgeSvg = `
-    <svg width="34" height="34" viewBox="0 0 100 100" style="flex-shrink:0;">
-      <circle cx="50" cy="50" r="48" fill="#2E6E52"/>
-      <path d="M50 12 C 38 22, 30 38, 34 52 C 40 46, 48 44, 54 50 C 50 36, 52 22, 50 12 Z" fill="#EAF3F0"/>
-      <path d="M54 50 C 60 44, 70 42, 78 46 C 70 54, 60 58, 54 50 Z" fill="#EAF3F0"/>
-      <circle cx="70" cy="47" r="2.6" fill="#2E6E52"/>
-      <path d="M8 70 C 25 62, 40 62, 50 68 C 60 74, 75 74, 92 66" stroke="#3E7FB0" stroke-width="4" fill="none" stroke-linecap="round"/>
-      <path d="M8 80 C 25 74, 40 74, 50 78 C 60 82, 75 82, 92 76" stroke="#6FA8CE" stroke-width="4" fill="none" stroke-linecap="round"/>
-    </svg>
-  `;
   document.querySelectorAll('.logo').forEach(el => {
-    el.innerHTML = badgeSvg + '<span>ecosilk</span>';
+    el.innerHTML = '<img src="assets/logo.png" alt="Ecosilk Bags" style="height:36px;width:auto;">';
     el.style.display = 'flex';
     el.style.alignItems = 'center';
-    el.style.gap = '10px';
   });
 }
 
