@@ -67,6 +67,14 @@
   <p>A slice of every sale goes to the Australian Marine Conservation Society. The reef's still here — let's keep it that way.</p>
 </section>
 
+<section id="reefCollection">
+  <div class="wrap">
+    <h2 style="font-size:clamp(1.6rem,3.2vw,2.2rem);margin-bottom:8px;">The Reef Collection</h2>
+    <p style="opacity:0.7;margin-bottom:24px;max-width:520px;">Every pack named after the species it helps protect. Same black tag you'd find in the bag, if you flipped it over.</p>
+    <div class="reef-grid" id="reefGrid"></div>
+  </div>
+</section>
+
 <section>
   <div class="wrap">
     <h2 style="font-size:clamp(1.6rem,3.2vw,2.2rem);margin-bottom:20px;">What people who actually own one say</h2>
@@ -123,6 +131,26 @@
     e.target.textContent = 'Added ✓';
     setTimeout(() => e.target.textContent = 'Add to bag', 900);
   });
+
+  // Reef Collection — real animal-pack data, black swing-tag styling
+  const reefPacks = [{"name": "Leopard Shark", "price": 60.0, "image": "https://www.ecosilkbags.com.au/wp-content/uploads/2022/10/Leopard-Shark-Ecosilk-Shoulder-bags-colour-spread.jpg", "category": "Shoulder Bags 4 Pack"}, {"name": "Anemone", "price": 60.0, "image": "https://www.ecosilkbags.com.au/wp-content/uploads/2022/10/Anenome-Ecosilk-Shoulder-bags-colour-spread.jpg", "category": "Shoulder Bags 4 Pack"}, {"name": "Octopus", "price": 60.0, "image": "https://www.ecosilkbags.com.au/wp-content/uploads/2022/10/Octopus-Ecosilk-Shoulder-bags-colour-spread.jpg", "category": "Shoulder Bags 4 Pack"}, {"name": "Crab", "price": 60.0, "image": "https://www.ecosilkbags.com.au/wp-content/uploads/2022/10/Crab-Ecosilk-Shoulder-bags-colour-spread.jpg", "category": "Shoulder Bags 4 Pack"}, {"name": "Crown Of Thorns", "price": 51.5, "image": "https://www.ecosilkbags.com.au/wp-content/uploads/2022/10/Crown-of-Thorns-Ecosilk-Shopping-bags-colour-spread.jpg", "category": "Shopping Bags 4 Pack"}, {"name": "Jellyfish", "price": 51.5, "image": "https://www.ecosilkbags.com.au/wp-content/uploads/2022/10/Jellyfish-Ecosilk-Shopping-bags-colour-spread.jpg", "category": "Shopping Bags 4 Pack"}, {"name": "Clownfish", "price": 51.5, "image": "https://www.ecosilkbags.com.au/wp-content/uploads/2022/10/Clownfish-Ecosilk-Shopping-bags-colour-spread.jpg", "category": "Shopping Bags 4 Pack"}, {"name": "Seahorse", "price": 51.5, "image": "https://www.ecosilkbags.com.au/wp-content/uploads/2022/10/Seahorse-Ecosilk-Shopping-bags-colour-spread.jpg", "category": "Shopping Bags 4 Pack"}, {"name": "Starfish", "price": 51.5, "image": "https://www.ecosilkbags.com.au/wp-content/uploads/2019/09/Starfish-Shopping-pack-of-4-SQUARE-350x350.jpg", "category": "Shopping Bags 4 Pack"}, {"name": "Turtle", "price": 51.5, "image": "https://www.ecosilkbags.com.au/wp-content/uploads/2019/09/Turtle-Shopping-pack-of-4-SQUARE-350x350.jpg", "category": "Shopping Bags 4 Pack"}, {"name": "Coral", "price": 51.5, "image": "https://www.ecosilkbags.com.au/wp-content/uploads/2019/09/Coral-Shopping-pack-of-4-SQUARE-350x350.jpg", "category": "Shopping Bags 4 Pack"}, {"name": "Shoal", "price": 51.5, "image": "https://www.ecosilkbags.com.au/wp-content/uploads/2019/09/Shoal-Shopping-pack-of-4-SQUARE-350x350.jpg", "category": "Shopping Bags 4 Pack"}];
+  document.getElementById('reefGrid').innerHTML = reefPacks.map(p => `
+    <div class="reef-card">
+      <div class="reef-photo" style="background-image:url('${p.image}')"></div>
+      <div class="reef-badge">
+        <svg width="20" height="20" viewBox="0 0 100 100">
+          <circle cx="50" cy="50" r="48" fill="#2E6E52"/>
+          <path d="M50 12 C 38 22, 30 38, 34 52 C 40 46, 48 44, 54 50 C 50 36, 52 22, 50 12 Z" fill="#EAF3F0"/>
+          <path d="M54 50 C 60 44, 70 42, 78 46 C 70 54, 60 58, 54 50 Z" fill="#EAF3F0"/>
+        </svg>
+        <span>ecosilk</span>
+      </div>
+      <div class="reef-info">
+        <div class="reef-name">${p.name}</div>
+        <div class="reef-price">$${p.price.toFixed(2)}</div>
+      </div>
+    </div>
+  `).join('');
 </script>
 </body>
 </html>
